@@ -13,7 +13,7 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
 		paths: {
-			relative: false,
+			relative: true,
 		},
 		env: {
 			publicPrefix: "PUB_",

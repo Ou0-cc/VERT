@@ -1,4 +1,5 @@
 import { browser } from "$app/environment";
+import { resolve } from "$app/paths";
 
 export interface CacheInfo {
 	totalSize: number;
@@ -21,7 +22,7 @@ class ServiceWorkerManager {
 
 		try {
 			this.registration = await navigator.serviceWorker.register(
-				"/sw.js",
+				resolve("/") + "/sw.js",
 				{
 					scope: "/",
 				},

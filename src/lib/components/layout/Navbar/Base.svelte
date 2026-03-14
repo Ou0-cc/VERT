@@ -24,6 +24,7 @@
 	import { beforeNavigate } from "$app/navigation";
 	import Tooltip from "$lib/components/visual/Tooltip.svelte";
 	import { m } from "$lib/paraglide/messages";
+	import { resolve } from "$app/paths";
 
 	const items = $derived<
 		{
@@ -104,7 +105,7 @@
 	{@const Icon = item.icon}
 	<a
 		bind:this={links[index]}
-		href={item.url}
+		href={resolve(item.url)}
 		aria-label={item.name}
 		class={clsx(
 			"min-w-16 md:min-w-32 h-full relative z-10 rounded-xl flex flex-1 items-center justify-center gap-3 overflow-hidden",
@@ -185,7 +186,7 @@
 		{/if}
 		<a
 			class="w-28 h-full bg-accent rounded-xl items-center justify-center hidden md:flex"
-			href="/"
+			href={resolve("/")}
 		>
 			<div class="h-5 w-full">
 				<Logo />

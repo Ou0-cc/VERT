@@ -5,6 +5,7 @@ import PandocWorker from "$lib/workers/pandoc?worker&url";
 import { error, log } from "$lib/util/logger";
 import { ToastManager } from "$lib/util/toast.svelte";
 import { m } from "$lib/paraglide/messages";
+import { resolve } from "$app/paths";
 
 export class PandocConverter extends Converter {
 	public name = "pandoc";
@@ -19,7 +20,7 @@ export class PandocConverter extends Converter {
 		(async () => {
 			try {
 				this.status = "downloading";
-				this.wasm = await fetch("/pandoc.wasm").then((r) =>
+				this.wasm = await fetch(resolve("/") + "/pandoc.wasm").then((r) =>
 					r.arrayBuffer(),
 				);
 

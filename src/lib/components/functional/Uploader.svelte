@@ -8,6 +8,7 @@
 	import { goto } from "$app/navigation";
 	import { page } from "$app/state";
 	import { m } from "$lib/paraglide/messages";
+	import { resolve } from "$app/paths";
 
 	type Props = {
 		class?: string;
@@ -27,7 +28,7 @@
 		if (!fileInput) return;
 		const oldLength = files.files.length;
 		files.add(fileInput.files);
-		if (oldLength !== files.files.length) goto("/convert");
+		if (oldLength !== files.files.length) goto(resolve("/convert"));
 	};
 
 	onMount(() => {
